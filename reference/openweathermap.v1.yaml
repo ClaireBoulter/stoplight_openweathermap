@@ -46,7 +46,7 @@ paths:
                     properties:
                       id:
                         type: integer
-                        description: ' Weather condition id'
+                        description: Weather condition id
                       main:
                         type: string
                         description: 'Group of weather parameters (Rain, Snow, Extreme etc.)'
@@ -79,20 +79,20 @@ paths:
                         type: integer
                         description: 'Humidity, %'
                       humidity:
-                        type: string
+                        type: integer
                         description: 'Humidity, %'
                   visibiility:
                     type: object
                     properties:
                       wind:
                         type: array
-                        description: 'Cloudiness, %'
+                        description: ''
                         items: {}
                       speed:
                         type: number
                         description: 'Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.'
                       deg:
-                        type: string
+                        type: integer
                         description: 'Wind direction, degrees (meteorological)'
                   Clouds:
                     type: object
@@ -100,7 +100,7 @@ paths:
                     properties:
                       all:
                         type: integer
-                        description: ain volume for the last 3 hours
+                        description: 'Cloudiness, %'
                   dt:
                     type: object
                     description: '1560350645'
