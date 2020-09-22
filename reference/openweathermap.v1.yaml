@@ -12,7 +12,49 @@ info:
 servers:
   - url: 'https://api.openweathermap.org/data/2.5'
     description: prod
-paths: {}
+paths:
+  /weather:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-weather
+      security:
+        - app_id: []
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: zip
+        - schema:
+            type: string
+          in: query
+          name: units
+        - schema:
+            type: string
+          in: query
+          name: q
+        - schema:
+            type: string
+          in: query
+          name: id
+        - schema:
+            type: string
+          in: query
+          name: lat
+        - schema:
+            type: string
+          in: query
+          name: lon
+        - schema:
+            type: string
+          in: query
+          name: lang
+        - schema:
+            type: string
+          in: query
+          name: mode
+    parameters: []
 components:
   schemas: {}
   securitySchemes:
