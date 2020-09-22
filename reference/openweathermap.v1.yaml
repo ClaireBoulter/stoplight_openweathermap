@@ -129,34 +129,35 @@ paths:
                 example-1:
                   value:
                     Coord:
-                      lon: string
+                      lon: 0
                       lat: 0
                     Weather:
                       id: 0
                       main: string
                       description: string
                       icon: string
-                    Main:
+                    base:
+                      main:
+                        - null
                       temp: 0
-                      pressure: 0
-                      humidity: 0
+                      feels_like: 0
                       temp_min: 0
                       temp_max: 0
-                      sea_level: 0
-                      grnd_level: 0
-                    Wind:
+                      pressure: 0
+                      humidity: string
+                    visibiility:
+                      wind:
+                        - null
                       speed: 0
                       deg: string
                     Clouds:
                       all: 0
-                    Rain:
-                      3h: string
-                    Snow:
-                      3h: string
-                    Sys:
-                      type: string
+                    dt:
+                      sys:
+                        - null
+                      type: 0
                       id: 0
-                      message: 0
+                      message: string
                       country: string
                       sunrise: 0
                       sunset: 0
