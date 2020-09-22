@@ -16,7 +16,8 @@ paths:
   /weather:
     get:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - Weather endpoints
       responses:
         '200':
           description: OK
@@ -124,12 +125,43 @@ paths:
                   sunset:
                     type: integer
                     description: 'Sunset time, unix, UTC'
-                  securitySchemes:
-                    type: object
-                  app_id:
-                    type: string
-                    description: API key to authorize requests.
-              examples: {}
+              examples:
+                example-1:
+                  value:
+                    Coord: {}
+                    lon: 0
+                    lat: 0
+                    Weather: {}
+                    id: 0
+                    main: string
+                    description: string
+                    icon: string
+                    Main: {}
+                    temp: 0
+                    ' pressure': 0
+                    ' humidity': 0
+                    temp_min: 0
+                    temp_max: 0
+                    sea_level: 0
+                    grnd_level: 0
+                    Wind: {}
+                    speed: 0
+                    deg: 0
+                    Clouds: {}
+                    all: 0
+                    Rain:
+                      3h: string
+                    Snow:
+                      3h: string
+                    Sys:
+                      type: string
+                      id: 0
+                    message: 0
+                    country: string
+                    ' sunrise': 0
+                    sunset: 0
+                    securitySchemes: {}
+                    app_id: apiKey
             application/xml:
               schema:
                 type: object
@@ -146,8 +178,6 @@ paths:
                 properties:
                   '':
                     type: string
-        '201':
-          description: Created
       operationId: get-weather
       security:
         - app_id: []
@@ -227,3 +257,5 @@ components:
       name: API Key
       type: apiKey
       in: query
+tags:
+  - name: Weather endpoints
