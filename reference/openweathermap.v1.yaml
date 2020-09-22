@@ -29,22 +29,22 @@ paths:
                   Coord:
                     type: object
                   lon:
-                    type: string
+                    type: number
                     description: |-
                       ity geo location, longitude
                       example: 145.77000000000001
                   lat:
-                    type: string
+                    type: number
                     description: |-
                       City geo location, latitude
                                 example: -16.920000000000002
                   Weather:
                     type: object
                   id:
-                    type: string
-                    description: Internal parameter
-                  main:
                     type: integer
+                    description: ' Weather condition id'
+                  main:
+                    type: string
                     description: 'roup of weather parameters (Rain, Snow, Extreme etc.)'
                   description:
                     type: string
@@ -70,7 +70,7 @@ paths:
                     type: number
                     description: 'Maximum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
                   sea_level:
-                    type: string
+                    type: number
                     description: 'Atmospheric pressure on the sea level, hPa'
                   grnd_level:
                     type: number
@@ -89,16 +89,31 @@ paths:
                     type: integer
                     description: 'Cloudiness, %'
                   Rain:
-                    type: integer
+                    type: object
                     description: 'Rain volume for the last 3 hours  '
+                    properties:
+                      3h:
+                        type: string
+                        description: ain volume for the last 3 hours
                   Snow:
                     type: object
                     description: Snow volume for the last 3 hours
+                    properties:
+                      3h:
+                        type: string
+                        description: Snow volume for the last 3 hours
                   Sys:
                     type: object
                     description: Internal parameter
+                    properties:
+                      type:
+                        type: string
+                        description: Internal parameter
+                      id:
+                        type: integer
+                        description: Internal parameter
                   message:
-                    type: string
+                    type: number
                     description: Internal parameter
                   country:
                     type: string
@@ -114,8 +129,6 @@ paths:
                   app_id:
                     type: string
                     description: API key to authorize requests.
-                  '':
-                    type: string
               examples: {}
             application/xml:
               schema:
@@ -142,23 +155,43 @@ paths:
         - schema:
             type: string
           in: query
+          name: name
+          description: '**City name**. *Example: London*. You can call by city name, or by city name and country code. The API responds with a list of results that match a searching word. For the query value, type the city name and optionally the country code divided by a comma; use ISO 3166 country codes.  '
+        - schema:
+            type: string
+          in: query
+          name: id
+          description: '**City ID**. *Example: `2172797`*. You can call by city ID. The API responds with the exact result. The List of city IDs can be downloaded [here](http://bulk.openweathermap.org/sample/). You can include multiple cities in this parameter &mdash; just separate them by commas. The limit of locations is 20. *Note: A single ID counts as a one API call. So, if you have city IDs, it''s treated as 3 API calls.*'
+        - schema:
+            type: string
+          in: query
           name: lat
-          description: Latitude. Example 35.
+          description: '**Latitude**. *Example: 35*. The latitude coordinate of the location of your interest. Must use with `lon`.  '
         - schema:
             type: string
           in: query
           name: lon
-          description: Longitude. Example 139.
+          description: '**Longitude**. *Example: 139*. Longitude coordinate of the location of your interest. Must use with `lat`.'
+        - schema:
+            type: string
+          in: query
+          name: zip
+          description: '**Zip code**. Search by zip code. *Example: 95050,us*. Please note that if the country is not specified, the search uses USA as a default.'
+        - schema:
+            type: string
+          in: query
+          name: units
+          description: '*Units**. *Example: imperial*. Possible values: `standard`, `metric`, and `imperial`. When you do not use the `units` parameter, the format is `standard` by default.'
         - schema:
             type: string
           in: query
           name: lang
-          description: Language. Example **en""
+          description: '**Language**. *Example: en*. You can use lang parameter to get the output in your language. We support the following languages that you can use with the corresponded lang values: Arabic - `ar`, Bulgarian - `bg`, Catalan - `ca`, Czech - `cz`, German - `de`, Greek - `el`, English - `en`, Persian (Farsi) - `fa`, Finnish - `fi`, French - `fr`, Galician - `gl`, Croatian - `hr`, Hungarian - `hu`, Italian - `it`, Japanese - `ja`, Korean - `kr`, Latvian - `la`, Lithuanian - `lt`, Macedonian - `mk`, Dutch - `nl`, Polish - `pl`, Portuguese - `pt`, Romanian - `ro`, Russian - `ru`, Swedish - `se`, Slovak - `sk`, Slovenian - `sl`, Spanish - `es`, Turkish - `tr`, Ukrainian - `ua`, Vietnamese - `vi`, Chinese Simplified - `zh_cn`, Chinese Traditional - `zh_tw`.'
         - schema:
             type: string
           in: query
           name: mode
-          description: Response format. Possible values are xml and html.
+          description: '**Mode**. *Example: html*. Determines the format of the response. Possible values are `json`, `xml`, and `html`. If the mode parameter is empty, the format is `json` by default.'
       requestBody:
         content:
           application/json:
@@ -169,6 +202,18 @@ paths:
               example-1:
                 value: {}
           application/xml:
+            schema:
+              type: object
+              properties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              properties: {}
+          text/html:
+            schema:
+              type: object
+              properties: {}
+          text/plain:
             schema:
               type: object
               properties: {}
