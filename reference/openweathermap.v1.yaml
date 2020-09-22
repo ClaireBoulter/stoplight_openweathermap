@@ -68,17 +68,19 @@ paths:
                         description: 'Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
                       feels_like:
                         type: number
-                        description: ''
+                        description: 'Temperature. This temperature parameter accounts for the human perception of weather. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
                       temp_min:
                         type: number
                         description: 'Maximum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
                       temp_max:
                         type: number
+                        description: 'Maximum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
                       pressure:
                         type: integer
                         description: 'Humidity, %'
                       humidity:
                         type: string
+                        description: 'Humidity, %'
                   visibiility:
                     type: object
                     properties:
@@ -125,6 +127,18 @@ paths:
                       sunset:
                         type: integer
                         description: ' Sunset time, unix, UTC'
+                  timezone:
+                    type: number
+                    description: timezone
+                  id:
+                    type: integer
+                    description: City ID
+                  name:
+                    type: string
+                    description: City name
+                  cod:
+                    type: string
+                    description: ' Internal parameter'
               examples:
                 example-1:
                   value:
