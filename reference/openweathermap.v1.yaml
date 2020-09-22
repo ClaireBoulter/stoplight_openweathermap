@@ -142,26 +142,6 @@ paths:
         - schema:
             type: string
           in: query
-          name: zip
-          description: '**Zip code*. Search by zip code. Example 950950.'
-        - schema:
-            type: string
-          in: query
-          name: units
-          description: 'Units of measurement. Possible values: standard, metric and imperial.'
-        - schema:
-            type: string
-          in: query
-          name: q
-          description: 'City name, state code and country code divided by comma, use ISO 3166 country codes.'
-        - schema:
-            type: string
-          in: query
-          name: id
-          description: Your unique API key
-        - schema:
-            type: string
-          in: query
           name: lat
           description: Latitude. Example 35.
         - schema:
