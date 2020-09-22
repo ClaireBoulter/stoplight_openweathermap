@@ -32,7 +32,7 @@ paths:
                     description: ''
                     properties:
                       lon:
-                        type: string
+                        type: number
                         description: |-
                           City geo location, longitude
                           example: 145.77000000000001
@@ -56,83 +56,75 @@ paths:
                       icon:
                         type: string
                         description: Weather icon id
-                  Main:
+                  base:
                     type: object
                     properties:
+                      main:
+                        type: array
+                        description: ''
+                        items: {}
                       temp:
-                        type: number
+                        type: integer
                         description: 'Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
-                      pressure:
-                        type: integer
-                        description: 'Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa'
-                      humidity:
-                        type: integer
-                        description: 'Humidity, %'
+                      feels_like:
+                        type: number
+                        description: ''
                       temp_min:
                         type: number
-                        description: 'Minimum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
+                        description: 'Maximum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
                       temp_max:
                         type: number
-                        description: 'Maximum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
-                      sea_level:
-                        type: number
-                        description: 'Atmospheric pressure on the sea level, hPa'
-                      grnd_level:
-                        type: number
-                        description: 'Atmospheric pressure on the ground level, hPa'
-                  Wind:
+                      pressure:
+                        type: integer
+                        description: 'Humidity, %'
+                      humidity:
+                        type: string
+                  visibiility:
                     type: object
                     properties:
+                      wind:
+                        type: array
+                        description: 'Cloudiness, %'
+                        items: {}
                       speed:
                         type: number
                         description: 'Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.'
                       deg:
                         type: string
                         description: 'Wind direction, degrees (meteorological)'
-                      '':
-                        type: string
                   Clouds:
                     type: object
+                    description: ''
                     properties:
                       all:
                         type: integer
-                        description: 'Cloudiness, %'
-                  Rain:
-                    type: object
-                    description: 'Rain volume for the last 3 hours  '
-                    properties:
-                      3h:
-                        type: string
                         description: ain volume for the last 3 hours
-                  Snow:
+                  dt:
                     type: object
-                    description: Snow volume for the last 3 hours
+                    description: '1560350645'
                     properties:
-                      3h:
-                        type: string
-                        description: Snow volume for the last 3 hours
-                  Sys:
-                    type: object
-                    description: Internal parameter
-                    properties:
+                      sys:
+                        type: array
+                        items: {}
                       type:
-                        type: string
-                        description: Internal parameter
+                        type: integer
+                        description: 'Time of data calculation, unix, UTC'
                       id:
                         type: integer
-                        description: Internal parameter
+                        description: City ID
                       message:
-                        type: number
+                        type: string
                         description: Internal parameter
                       country:
                         type: string
                         description: 'Country code (GB, JP etc.)'
                       sunrise:
                         type: integer
-                        description: 'Sunrise time, unix, UTC'
+                        description: |
+                          Sunrise time, unix, UTC
                       sunset:
                         type: integer
-                        description: 'Sunset time, unix, UTC'
+                        description: ' Sunset time, unix, UTC'
               examples:
                 example-1:
                   value:
@@ -188,6 +180,12 @@ paths:
       security:
         - app_id: []
       parameters:
+        - schema:
+            type: string
+          in: query
+          name: q
+          description: '**City ID**. *Example: `2172797`*. You can call by city ID. The API responds with the exact result. The List of city IDs can be downloaded [here](http://bulk.openweathermap.org/sample/). You can include multiple cities in this parameter &mdash; just separate them by commas. The limit of locations is 20. *Note: A single ID counts as a one API call. So, if you have city IDs, it''s treated as 3 API calls.*'
+          required: true
         - schema:
             type: string
           in: query
