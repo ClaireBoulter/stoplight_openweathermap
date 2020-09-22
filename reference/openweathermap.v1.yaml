@@ -17,7 +17,115 @@ paths:
     get:
       summary: Your GET endpoint
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: coord
+                type: object
+                properties:
+                  cod:
+                    type: number
+                  lon:
+                    type: number
+                    description: Longitude
+                  name:
+                    type: number
+                    description: Name
+                  lat:
+                    type: string
+                    description: Latitude
+                  id:
+                    type: number
+                  sys:
+                    type: object
+                  type:
+                    type: number
+                  country:
+                    type: string
+                    description: Country
+                  sunrise:
+                    type: number
+                    description: Sunrise
+                  sunset:
+                    type: number
+                    description: Sunset
+                  clouds:
+                    type: object
+                    description: Clouds
+                    properties:
+                      all:
+                        type: string
+                      wind:
+                        type: object
+                        properties:
+                          speed:
+                            type: number
+                            description: Wind speed
+                          deg:
+                            type: number
+                            description: degrees
+                          visibility:
+                            type: number
+                            description: Visibility
+                          main:
+                            type: object
+                            properties:
+                              temp:
+                                type: number
+                                description: Temperature
+                              feels_like:
+                                type: number
+                                description: Feels like
+                              temp_min:
+                                type: number
+                                description: Minimum temperature
+                              temp_max:
+                                type: number
+                                description: Maximum temperature
+                              pressure:
+                                type: number
+                                description: Pressure
+                              humidity:
+                                type: number
+                                description: Humidity
+                              base:
+                                type: string
+                              weather:
+                                type: array
+                                description: Weather
+                                items:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: number
+                                    main:
+                                      type: string
+                                    description:
+                                      type: string
+                                      description: Description
+                                    icon:
+                                      type: string
+                                      description: Icon
+              examples: {}
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  '':
+                    type: string
+            text/html:
+              schema:
+                type: object
+                properties:
+                  '':
+                    type: string
       operationId: get-weather
       security:
         - app_id: []
@@ -54,6 +162,17 @@ paths:
             type: string
           in: query
           name: mode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+      description: ''
     parameters: []
 components:
   schemas: {}
