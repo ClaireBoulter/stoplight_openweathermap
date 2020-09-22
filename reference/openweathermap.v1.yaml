@@ -33,33 +33,37 @@ paths:
                     description: Longitude
                   name:
                     type: number
-                    description: Name
+                    description: City Name
                   lat:
                     type: string
                     description: Latitude
                   id:
                     type: number
+                    description: Your unique API key
                   sys:
                     type: object
                   type:
                     type: number
+                    description: Type of wind
                   country:
                     type: string
-                    description: Country
+                    description: Country code
                   sunrise:
                     type: number
-                    description: Sunrise
+                    description: Sunrise time
                   sunset:
                     type: number
-                    description: Sunset
+                    description: Sunset time
                   clouds:
                     type: object
                     description: Clouds
                     properties:
                       all:
                         type: string
+                        description: Cloudiness %
                       wind:
                         type: object
+                        description: Wind
                         properties:
                           speed:
                             type: number
@@ -72,6 +76,7 @@ paths:
                             description: Visibility
                           main:
                             type: object
+                            description: Main
                             properties:
                               temp:
                                 type: number
@@ -101,6 +106,7 @@ paths:
                                   properties:
                                     id:
                                       type: number
+                                      description: Your unique API key
                                     main:
                                       type: string
                                     description:
@@ -134,34 +140,42 @@ paths:
             type: string
           in: query
           name: zip
+          description: '**Zip code*. Search by zip code. Example 950950.'
         - schema:
             type: string
           in: query
           name: units
+          description: 'Units of measurement. Possible values: standard, metric and imperial.'
         - schema:
             type: string
           in: query
           name: q
+          description: 'City name, state code and country code divided by comma, use ISO 3166 country codes.'
         - schema:
             type: string
           in: query
           name: id
+          description: Your unique API key
         - schema:
             type: string
           in: query
           name: lat
+          description: Latitude. Example 35.
         - schema:
             type: string
           in: query
           name: lon
+          description: Longitude. Example 139.
         - schema:
             type: string
           in: query
           name: lang
+          description: Language. Example **en""
         - schema:
             type: string
           in: query
           name: mode
+          description: Response format. Possible values are xml and html.
       requestBody:
         content:
           application/json:
@@ -172,7 +186,10 @@ paths:
             schema:
               type: object
               properties: {}
-      description: ''
+        description: ''
+      description: |-
+        Get the current weather, daily forecast for 16 days, and a three-hour interval forecast for 5 days for your city.Helpful stats, graphics, and this day in history charts are available for your reference. Interactive maps show precipitation, clouds, pressure, wind around your station location stations. Data is available in JSON, XML, or HTML format. **Note** This sample Swagger file covers the 'current' endpoint only from the OpenWeatherMap API. <br/><br/>
+        **Note** All parameters are optional, but you must select at least one parameter. Calling the API by city ID (using the 'id' parameter) will provide the most precise location results.
     parameters: []
 components:
   schemas: {}
