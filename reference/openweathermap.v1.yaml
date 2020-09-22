@@ -130,9 +130,13 @@ paths:
                   timezone:
                     type: number
                     description: timezone
+                  '':
+                    type: array
+                    description: City ID
+                    items: {}
                   id:
                     type: integer
-                    description: City ID
+                    description: City name
                   name:
                     type: string
                     description: City name
