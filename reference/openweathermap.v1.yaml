@@ -29,66 +29,72 @@ paths:
                 properties:
                   Coord:
                     type: object
-                  lon:
-                    type: number
-                    description: |-
-                      ity geo location, longitude
-                      example: 145.77000000000001
-                  lat:
-                    type: number
-                    description: |-
-                      City geo location, latitude
-                                example: -16.920000000000002
+                    description: ''
+                    properties:
+                      lon:
+                        type: string
+                        description: |-
+                          City geo location, longitude
+                          example: 145.77000000000001
+                      lat:
+                        type: number
+                        description: |-
+                          City geo location, latitude
+                          example: -16.920000000000002
                   Weather:
                     type: object
-                  id:
-                    type: integer
-                    description: ' Weather condition id'
-                  main:
-                    type: string
-                    description: 'roup of weather parameters (Rain, Snow, Extreme etc.)'
-                  description:
-                    type: string
-                    description: Weather condition within the group
-                  icon:
-                    type: string
-                    description: Weather icon id
+                    properties:
+                      id:
+                        type: integer
+                        description: ' Weather condition id'
+                      main:
+                        type: string
+                        description: 'Group of weather parameters (Rain, Snow, Extreme etc.)'
+                      description:
+                        type: string
+                        description: Weather condition within the group
+                      icon:
+                        type: string
+                        description: Weather icon id
                   Main:
                     type: object
-                  temp:
-                    type: number
-                    description: 'Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
-                  ' pressure':
-                    description: 'Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa'
-                    type: integer
-                  ' humidity':
-                    type: integer
-                    description: 'Humidity, %'
-                  temp_min:
-                    type: number
-                    description: 'Minimum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
-                  temp_max:
-                    type: number
-                    description: 'Maximum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
-                  sea_level:
-                    type: number
-                    description: 'Atmospheric pressure on the sea level, hPa'
-                  grnd_level:
-                    type: number
-                    description: 'Atmospheric pressure on the ground level, hPa'
+                    properties:
+                      temp:
+                        type: number
+                        description: 'Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
+                      pressure:
+                        type: integer
+                        description: 'Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa'
+                      humidity:
+                        type: integer
+                        description: 'Humidity, %'
+                      temp_min:
+                        type: number
+                        description: 'Minimum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
+                      temp_max:
+                        type: number
+                        description: 'Maximum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.'
+                      sea_level:
+                        type: number
+                        description: 'Atmospheric pressure on the sea level, hPa'
+                      grnd_level:
+                        type: number
+                        description: 'Atmospheric pressure on the ground level, hPa'
                   Wind:
                     type: object
-                  speed:
-                    type: number
-                    description: 'Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.'
-                  deg:
-                    type: integer
-                    description: 'Wind direction, degrees (meteorological)'
+                    properties:
+                      speed:
+                        type: number
+                        description: 'Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.'
+                      deg:
+                        type: string
+                        description: 'Wind direction, degrees (meteorological)'
                   Clouds:
                     type: object
-                  all:
-                    type: integer
-                    description: 'Cloudiness, %'
+                    properties:
+                      all:
+                        type: integer
+                        description: 'Cloudiness, %'
                   Rain:
                     type: object
                     description: 'Rain volume for the last 3 hours  '
@@ -113,42 +119,42 @@ paths:
                       id:
                         type: integer
                         description: Internal parameter
-                  message:
-                    type: number
-                    description: Internal parameter
-                  country:
-                    type: string
-                    description: 'Country code (GB, JP etc.)'
-                  ' sunrise':
-                    type: integer
-                    description: 'Sunrise time, unix, UTC'
-                  sunset:
-                    type: integer
-                    description: 'Sunset time, unix, UTC'
+                      message:
+                        type: number
+                        description: Internal parameter
+                      country:
+                        type: string
+                        description: 'Country code (GB, JP etc.)'
+                      sunrise:
+                        type: integer
+                        description: 'Sunrise time, unix, UTC'
+                      sunset:
+                        type: integer
+                        description: 'Sunset time, unix, UTC'
               examples:
                 example-1:
                   value:
-                    Coord: {}
-                    lon: 0
-                    lat: 0
-                    Weather: {}
-                    id: 0
-                    main: string
-                    description: string
-                    icon: string
-                    Main: {}
-                    temp: 0
-                    ' pressure': 0
-                    ' humidity': 0
-                    temp_min: 0
-                    temp_max: 0
-                    sea_level: 0
-                    grnd_level: 0
-                    Wind: {}
-                    speed: 0
-                    deg: 0
-                    Clouds: {}
-                    all: 0
+                    Coord:
+                      lon: string
+                      lat: 0
+                    Weather:
+                      id: 0
+                      main: string
+                      description: string
+                      icon: string
+                    Main:
+                      temp: 0
+                      pressure: 0
+                      humidity: 0
+                      temp_min: 0
+                      temp_max: 0
+                      sea_level: 0
+                      grnd_level: 0
+                    Wind:
+                      speed: 0
+                      deg: string
+                    Clouds:
+                      all: 0
                     Rain:
                       3h: string
                     Snow:
@@ -156,12 +162,10 @@ paths:
                     Sys:
                       type: string
                       id: 0
-                    message: 0
-                    country: string
-                    ' sunrise': 0
-                    sunset: 0
-                    securitySchemes: {}
-                    app_id: apiKey
+                      message: 0
+                      country: string
+                      sunrise: 0
+                      sunset: 0
             application/xml:
               schema:
                 type: object
