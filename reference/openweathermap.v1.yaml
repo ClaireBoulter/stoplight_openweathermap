@@ -127,13 +127,13 @@ paths:
                       sunset:
                         type: integer
                         description: ' Sunset time, unix, UTC'
-                  timezone:
-                    type: number
-                    description: timezone
                   '':
                     type: array
-                    description: City ID
+                    description: timezone
                     items: {}
+                  timezone:
+                    type: number
+                    description: City ID
                   id:
                     type: integer
                     description: City name
