@@ -30,30 +30,30 @@ paths:
                     type: number
                   lon:
                     type: number
-                    description: Longitude
+                    description: 'City geo location, longitude'
                   name:
                     type: number
                     description: City Name
                   lat:
                     type: string
-                    description: Latitude
+                    description: 'City geo location, latitude'
                   id:
                     type: number
-                    description: Your unique API key
+                    description: Internal parameter
                   sys:
                     type: object
                   type:
                     type: number
-                    description: Type of wind
+                    description: Internal parameter
                   country:
                     type: string
                     description: Country code
                   sunrise:
                     type: number
-                    description: Sunrise time
+                    description: 'Sunrise time, UTC'
                   sunset:
                     type: number
-                    description: Sunset time
+                    description: 'Sunset time, UTC'
                   clouds:
                     type: object
                     description: Clouds
@@ -182,6 +182,9 @@ paths:
             schema:
               type: object
               properties: {}
+            examples:
+              example-1:
+                value: {}
           application/xml:
             schema:
               type: object
