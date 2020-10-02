@@ -80,7 +80,6 @@ paths:
                         description: 'Humidity, %'
                       humidity:
                         type: integer
-                        description: 'Humidity, %'
                   visibiility:
                     type: object
                     properties:
@@ -162,7 +161,7 @@ paths:
                       temp_min: 0
                       temp_max: 0
                       pressure: 0
-                      humidity: string
+                      humidity: integer
                     visibiility:
                       wind:
                         - null
@@ -252,8 +251,8 @@ components:
   schemas: {}
   securitySchemes:
     app_id:
-      name: API Key
       type: apiKey
       in: query
+      name: appid
 tags:
   - name: Weather endpoints
