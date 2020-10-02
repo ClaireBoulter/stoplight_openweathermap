@@ -179,6 +179,12 @@ paths:
                       country: string
                       sunrise: 0
                       sunset: 0
+                    '':
+                      - null
+                    timezone: 0
+                    id: 0
+                    name: string
+                    cod: string
             application/xml:
               schema:
                 type: object
@@ -195,6 +201,8 @@ paths:
                 properties:
                   '':
                     type: string
+        '201':
+          description: Created
       operationId: get-weather
       security:
         - app_id: []
