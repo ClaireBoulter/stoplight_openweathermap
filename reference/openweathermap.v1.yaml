@@ -80,6 +80,7 @@ paths:
                         description: 'Humidity, %'
                       humidity:
                         type: integer
+                        description: 'Humidity, %'
                   visibiility:
                     type: object
                     properties:
